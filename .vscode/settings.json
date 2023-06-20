@@ -1,0 +1,14 @@
+{
+  "html.format.wrapAttributes": "force-expand-multiline",
+  "cSpell.words": [
+    "esbuild",
+    "imagetools",
+    "intlify",
+    "pinia",
+    "ramda",
+    "tailwindcss",
+    "Unocss",
+    "vueuse"
+  ],
+  "typescript.tsdk": "node_modules\\typescript\\lib"
+}
