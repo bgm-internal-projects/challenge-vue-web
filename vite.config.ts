@@ -13,8 +13,6 @@ import vueI18n from '@intlify/vite-plugin-vue-i18n';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'url';
 
-import Unocss from 'unocss/vite';
-
 // https://vitejs.dev/config/
 export default defineConfig(({ command, mode }) => {
   const isBuild = command === 'build';
@@ -42,7 +40,6 @@ export default defineConfig(({ command, mode }) => {
         sassVariables: 'src/style/quasar-variables.sass'
       }),
 
-      // Unocss(),
 
       loadVersion(),
       removeConsole(),

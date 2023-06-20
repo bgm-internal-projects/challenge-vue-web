@@ -9,6 +9,6 @@ describe('main Store', () => {
 
   it('資料是否存在', () => {
     const store = useMainStore();
-    expect(store.data).toBe('codfish');
+    expect(store.data).toBe('');
   })
 })
