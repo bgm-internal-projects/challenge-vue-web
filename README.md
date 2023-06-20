@@ -5,6 +5,10 @@
 - 千萬不要直接提交至 main
 - 千萬不要直接提交至 main
 
+命名規範為 develop/{代號}
+
+例：您的代號是 doge，分支就是 develop/doge
+
 ## ◻ 模板說明
 此模板內建以下套件：
 - Vue Router
@@ -15,11 +19,8 @@
 - lodash：記得引用 lodash-es。https://lodash.com/docs
 - Tailwind CSS
 
-
-## ◻ 分支命名規範
-命名規範為 develop/{代號}
-
-例：您的代號是 doge，分支就是 develop/doge
+## ◻ 風格指南
+依官方指南為主，記得多看看文檔：https://vuejs.org/style-guide
 
 
 ## ◻ 問題集
