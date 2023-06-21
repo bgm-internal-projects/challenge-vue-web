@@ -6,6 +6,7 @@ export interface RouteMeta {
 
 export enum RouteName {
   HOME = 'home',
+  ASYNC_CHILDREN = 'async-children',
 }
 
 const routes: Array<RouteRecordRaw> = [
@@ -20,6 +21,11 @@ const routes: Array<RouteRecordRaw> = [
     path: `/home`,
     name: RouteName.HOME,
     component: () => import('../views/the-home.vue')
+  },
+  {
+    path: `/async-children`,
+    name: RouteName.ASYNC_CHILDREN,
+    component: () => import('../views/the-async-children.vue')
   },
 
   {
