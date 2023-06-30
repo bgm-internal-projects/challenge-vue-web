@@ -3,14 +3,8 @@
 </template>
 
 <script setup lang="ts">
-import { useMeta } from 'quasar';
+import { ref, watch } from 'vue';
 
-useMeta(() => ({
-  title: `Vue Quasar TypeScript Template Web`,
-  titleTemplate: (title) => `${title} v${import.meta.env.PACKAGE_VERSION}`,
-}));
-
-console.log(`log 一下`);
 </script>
 
 <style lang="sass">
