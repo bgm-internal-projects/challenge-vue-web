@@ -1,6 +1,6 @@
 {
-  "name": "vite-vue3",
-  "version": "0.0.0",
+  "name": "bg-challenges-vue",
+  "version": "1.0.0",
   "scripts": {
     "dev": "vite --host",
     "build": "vue-tsc --noEmit --skipLibCheck && vite build",

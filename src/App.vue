@@ -3,8 +3,12 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch } from 'vue';
+import { useMeta } from 'quasar';
 
+useMeta(() => ({
+  title: `Vue 挑戰`,
+  titleTemplate: (title) => `${title} v${import.meta.env.PACKAGE_VERSION}`,
+}));
 </script>
 
 <style lang="sass">
