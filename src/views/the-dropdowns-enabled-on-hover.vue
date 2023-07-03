@@ -22,8 +22,11 @@
             <q-item-section>New</q-item-section>
           </q-item>
           <q-separator />
-          <q-item clickable>
-            <q-item-section @mouseover="handleHover">Preferences</q-item-section>
+          <q-item
+            clickable
+            @mouseenter="handleHover"
+          >
+            <q-item-section>Preferences</q-item-section>
             <q-item-section side>
               <q-icon name="keyboard_arrow_right" />
             </q-item-section>
@@ -38,6 +41,7 @@
                   :key="n"
                   dense
                   clickable
+                  @mouseenter="handleHover"
                 >
                   <q-item-section>Submenu Label</q-item-section>
                   <q-item-section side>
@@ -80,6 +84,7 @@
 import { computed, ref, watch } from 'vue';
 
 function handleHover(event: any) {
+  console.log('🚀 ~ event:', event);
   event.target.click();
 }
 </script>
