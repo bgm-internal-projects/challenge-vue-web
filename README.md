@@ -1,7 +1,7 @@
 # 歡迎來到 BGMotion Vue 挑戰
 
 開始撰寫程式前請先從 main「開新分支」
-> 千萬不要直接提交至 main
+> # 千萬不要直接提交至 main
 
 命名規範為 develop/{代號}
 
