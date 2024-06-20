@@ -12,7 +12,7 @@
 
 ## 如何開始
 
-### 新增、編輯新題目
+### 新增、編輯題目
 
 1. 從 main 開啟新分支，名稱為 feat/{目的}
 1. 新增、編輯題目
@@ -38,7 +38,10 @@
 - Quasar：<https://quasar.dev/introduction-to-quasar>
 - remeda：<https://remedajs.com/>
 - lodash：記得引用 lodash-es。<https://lodash.com/docs>
-- Tailwind CSS
+- Tailwind CSS：<https://tailwindcss.com/docs/installation>
+- UnoCSS：<https://unocss.dev/guide/>
+
+有興趣的話，可以引入 [VitePress](https://vitepress.dev/guide/what-is-vitepress)，練習寫完整的文檔。
 
 ## 注意事項
 
