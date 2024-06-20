@@ -6,8 +6,7 @@
 import { useMeta } from 'quasar';
 
 useMeta(() => ({
-  title: `Vue 挑戰`,
-  titleTemplate: (title) => `${title} v${import.meta.env.PACKAGE_VERSION}`,
+  title: `BG Motion Vue 挑戰`,
 }));
 </script>
 
