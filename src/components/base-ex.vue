@@ -13,6 +13,8 @@ const props = withDefaults(defineProps<Props>(), {
   label: '',
 });
 
+// old 3
+
 const emit = defineEmits<{
   (e: 'update:modelValue', value: string): void;
 }>();
