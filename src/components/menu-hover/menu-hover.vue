@@ -43,10 +43,6 @@ function handleMenuHover() {
   handleMenuLeave.cancel()
 }
 
-// watch(isMenuHover, () => {
-//   console.log('🚀 ~ isMenuHover:', isMenuHover);
-// })
-
 /** 只有 root menu 使用，child menu 應該使用 currentSubmenuList */
 const submenuList = ref<MenuData[]>([])
 
