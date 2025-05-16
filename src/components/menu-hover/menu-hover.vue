@@ -21,8 +21,7 @@ import { computed, provide, inject, ref, watch } from 'vue';
 import { MenuData, injectionKey } from './constant';
 import { omit } from 'lodash-es';
 
-interface Props extends QMenuProps {
-}
+interface Props extends Omit<QMenuProps, 'modelValue' | 'target'> { }
 const props = withDefaults(defineProps<Props>(), {});
 
 const attrs = computed(
