@@ -1,5 +1,11 @@
 <template>
-  <q-menu ref="menuRef">
+  <q-menu
+    ref="menuRef"
+    V-bind="$attrs"
+    :model-value="menuVisible"
+    @mouseenter="isMenuHover = true"
+    @mouseleave="isMenuHover = false"
+  >
     <slot></slot>
   </q-menu>
 </template>
@@ -31,21 +37,25 @@ const injectionKey = Symbol('q-menu-hover') as InjectionKey<{
   unbindSubmenu: (id: string) => void;
 }>
 
-const parentEl = useParentElement()
-onMounted(() => {
-  console.log('parentEl: ', parentEl.value)
-})
+const triggerEl = useParentElement()
 
-const isHover = useElementHover(parentEl)
-watch(isHover, (val) => {
-  console.log('🚀 ~ isHover:', isHover);
+const isTriggerHover = useElementHover(triggerEl, {
+  delayLeave: 200,
 })
 
 const menuRef = ref<InstanceType<typeof QMenu>>()
+const isMenuHover = ref(false)
+// watch(isMenuHover, () => {
+//   console.log('🚀 ~ isMenuHover:', isMenuHover);
+// })
+
 const submenuList = shallowRef<Submenu[]>([])
 const parentProvider = inject(injectionKey)
 const isParentMenu = computed(() => !!parentProvider)
 
+const menuVisible = computed(() => {
+  return isTriggerHover.value || isMenuHover.value
+})
 
 function bindSubmenu(data: Submenu) {
   submenuList.value.push(data)
@@ -66,7 +76,7 @@ onMounted(() => {
   if (!isParentMenu.value) {
     parentProvider?.bindSubmenu({
       id,
-      isHover,
+      isHover: isTriggerHover,
     })
   }
 })
