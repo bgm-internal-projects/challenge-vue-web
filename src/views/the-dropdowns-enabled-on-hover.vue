@@ -1,6 +1,6 @@
 <template>
   <div class="flex gap-10 p-10">
-    <div class="p-4 bg-primary text-white rounded">
+    <div class="p-4 bg-primary text-white rounded cursor-pointer">
       Menu
 
       <menu-hover>
@@ -96,6 +96,7 @@
             <q-item-section>New</q-item-section>
           </q-item>
           <q-separator />
+          
           <q-item clickable>
             <q-item-section>Preferences</q-item-section>
             <q-item-section side>
