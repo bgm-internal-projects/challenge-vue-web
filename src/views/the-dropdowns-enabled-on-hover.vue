@@ -21,7 +21,11 @@
             <q-item-section>New</q-item-section>
           </q-item>
           <q-separator />
-          <q-item clickable>
+          <q-item
+            v-for="n in 2"
+            :key="n"
+            clickable
+          >
             <q-item-section>Preferences</q-item-section>
             <q-item-section side>
               <q-icon name="keyboard_arrow_right" />
@@ -96,7 +100,7 @@
             <q-item-section>New</q-item-section>
           </q-item>
           <q-separator />
-          
+
           <q-item clickable>
             <q-item-section>Preferences</q-item-section>
             <q-item-section side>

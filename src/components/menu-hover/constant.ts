@@ -1,7 +1,12 @@
 import { InjectionKey, Ref } from "vue";
 
+export interface MenuData {
+  id: string;
+  level: number;
+}
+
 export const injectionKey = Symbol('q-menu-hover') as InjectionKey<{
-  bindSubmenu: (id: string) => void;
+  bindSubmenu: (data: MenuData) => void;
   unbindSubmenu: (id: string) => void;
-  submenuList: Ref<string[]>;
+  submenuList: Ref<MenuData[]>;
 }>
