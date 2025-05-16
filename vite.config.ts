@@ -4,9 +4,7 @@ import { quasar, transformAssetUrls } from '@quasar/vite-plugin';
 
 import VueDevTools from 'vite-plugin-vue-devtools'
 
-import loadVersion from 'vite-plugin-package-version';
 import removeConsole from 'vite-plugin-remove-console';
-import { imagetools } from 'vite-imagetools';
 import legacy from '@vitejs/plugin-legacy';
 
 import vueI18n from '@intlify/vite-plugin-vue-i18n';
@@ -41,10 +39,8 @@ export default defineConfig(({ command, mode }) => {
       }),
 
 
-      loadVersion(),
       removeConsole(),
       legacy({ targets: legacyTargets }),
-      imagetools()
     ],
     test: {
       environment: 'happy-dom',
