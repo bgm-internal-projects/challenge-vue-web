@@ -1,10 +1,8 @@
 <template>
   <q-menu
     ref="menuRef"
-    v-bind="$attrs"
-    :anchor="props.anchor"
-    :self="props.self"
     v-model="menuVisible"
+    v-bind="attrs"
     @mouseenter="handleMenuHover"
     @mouseleave="handleMenuLeave"
   >
@@ -21,10 +19,15 @@ import { debounce, QMenu, QMenuProps } from 'quasar';
 import { onBeforeUnmount } from 'vue';
 import { computed, provide, inject, ref, watch } from 'vue';
 import { MenuData, injectionKey } from './constant';
+import { omit } from 'lodash-es';
 
 interface Props extends QMenuProps {
 }
 const props = withDefaults(defineProps<Props>(), {});
+
+const attrs = computed(
+  () => omit(props, ['modelValue', 'target'])
+)
 
 const id = crypto.randomUUID()
 
