@@ -3,7 +3,7 @@
     <div class="p-4 bg-primary text-white rounded">
       Menu
 
-      <q-menu-hover>
+      <menu-hover>
         <q-list
           dense
           style="min-width: 100px"
@@ -27,7 +27,7 @@
               <q-icon name="keyboard_arrow_right" />
             </q-item-section>
 
-            <q-menu-hover
+            <menu-hover
               anchor="top end"
               self="top start"
             >
@@ -42,7 +42,7 @@
                   <q-item-section side>
                     <q-icon name="keyboard_arrow_right" />
                   </q-item-section>
-                  <q-menu-hover
+                  <menu-hover
                     auto-close
                     anchor="top end"
                     self="top start"
@@ -57,10 +57,10 @@
                         <q-item-section>3rd level Label</q-item-section>
                       </q-item>
                     </q-list>
-                  </q-menu-hover>
+                  </menu-hover>
                 </q-item>
               </q-list>
-            </q-menu-hover>
+            </menu-hover>
           </q-item>
           <q-separator />
           <q-item
@@ -70,12 +70,13 @@
             <q-item-section>Quit</q-item-section>
           </q-item>
         </q-list>
-      </q-menu-hover>
+      </menu-hover>
     </div>
 
     <q-btn
       label="Menu"
       color="primary"
+      unelevated
     >
       <q-menu>
         <q-list
@@ -149,9 +150,15 @@
   </div>
 </template>
 
-<script setup lang="ts">
-import QMenuHover from '../components/q-menu-hover/q-menu-hover.vue';
+<script
+  setup
+  lang="ts"
+>
+import MenuHover from '../components/menu-hover/menu-hover.vue';
 </script>
 
-<style scoped lang="sass">
+<style
+  scoped
+  lang="sass"
+>
 </style>
