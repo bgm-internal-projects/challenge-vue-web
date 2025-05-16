@@ -1,10 +1,10 @@
 <template>
-  <div class="flex gap-10">
+  <div class="flex gap-10 p-10">
     <q-btn
       label="Menu"
       color="primary"
     >
-      <q-menu>
+      <q-menu-hover>
         <q-list
           dense
           style="min-width: 100px"
@@ -22,16 +22,13 @@
             <q-item-section>New</q-item-section>
           </q-item>
           <q-separator />
-          <q-item
-            clickable
-            @mouseenter="handleHover"
-          >
+          <q-item clickable>
             <q-item-section>Preferences</q-item-section>
             <q-item-section side>
               <q-icon name="keyboard_arrow_right" />
             </q-item-section>
 
-            <q-menu
+            <q-menu-hover
               anchor="top end"
               self="top start"
             >
@@ -41,13 +38,12 @@
                   :key="n"
                   dense
                   clickable
-                  @mouseenter="handleHover"
                 >
                   <q-item-section>Submenu Label</q-item-section>
                   <q-item-section side>
                     <q-icon name="keyboard_arrow_right" />
                   </q-item-section>
-                  <q-menu
+                  <q-menu-hover
                     auto-close
                     anchor="top end"
                     self="top start"
@@ -62,10 +58,10 @@
                         <q-item-section>3rd level Label</q-item-section>
                       </q-item>
                     </q-list>
-                  </q-menu>
+                  </q-menu-hover>
                 </q-item>
               </q-list>
-            </q-menu>
+            </q-menu-hover>
           </q-item>
           <q-separator />
           <q-item
@@ -75,18 +71,15 @@
             <q-item-section>Quit</q-item-section>
           </q-item>
         </q-list>
-      </q-menu>
+      </q-menu-hover>
     </q-btn>
   </div>
 </template>
 
 <script setup lang="ts">
 import { computed, ref, watch } from 'vue';
+import QMenuHover from '../components/q-menu-hover.vue';
 
-function handleHover(event: any) {
-  console.log('🚀 ~ event:', event);
-  event.target.click();
-}
 </script>
 
 <style scoped lang="sass">
