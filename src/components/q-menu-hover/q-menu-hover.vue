@@ -1,7 +1,9 @@
 <template>
   <q-menu
     ref="menuRef"
-    V-bind="$attrs"
+    v-bind="$attrs"
+    :anchor="props.anchor"
+    :self="props.self"
     v-model="menuVisible"
     @mouseenter="handleMenuHover"
     @mouseleave="handleMenuLeave"
@@ -50,10 +52,10 @@ function handleMenuHover() {
 //   console.log('🚀 ~ isMenuHover:', isMenuHover);
 // })
 
-const parentProvider = inject(injectionKey, null)
+const rootProvider = inject(injectionKey, null)
 
 const hasSubmenuVisible = computed(() => {
-  const { submenuList } = parentProvider ?? {}
+  const { submenuList } = rootProvider ?? {}
   if (!submenuList) {
     return false
   }
@@ -63,7 +65,7 @@ const hasSubmenuVisible = computed(() => {
     return false
   }
 
-  return index === submenuList.value.length - 1
+  return index < submenuList.value.length - 1
 })
 
 const menuVisible = ref(false)
@@ -74,15 +76,18 @@ watch(() => [
 }, { deep: true })
 
 
-onMounted(() => {
-  console.log('🚀 ~ [onMounted] parentProvider:', parentProvider);
-
-  parentProvider?.bindSubmenu({ id })
+watch(menuVisible, (value) => {
+  console.log(`🚀 ~ triggerEl: `, triggerEl);
+  console.log(`🚀 ~ ${id}:`, value);
+  console.table({ ...rootProvider?.submenuList.value });
+  if (value) {
+    rootProvider?.bindSubmenu({ id })
+  } else {
+    rootProvider?.unbindSubmenu(id)
+  }
 })
 
 onBeforeUnmount(() => {
-  console.log('🚀 ~ [onBeforeUnmount] parentProvider:');
-
-  parentProvider?.unbindSubmenu(id)
+  rootProvider?.unbindSubmenu(id)
 })
 </script>
