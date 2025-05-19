@@ -16,6 +16,7 @@
         :to="item.path"
         :label="item.path"
         no-caps
+        align="left"
       />
     </div>
   </div>
