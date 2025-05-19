@@ -2,7 +2,6 @@
   <q-menu
     ref="menuRef"
     v-model="menuVisible"
-    v-bind="attrs"
     @mouseenter="handleMenuHover"
     @mouseleave="handleMenuLeave"
   >
@@ -25,10 +24,6 @@ interface Props extends Omit<QMenuProps, 'modelValue' | 'target'> {
 const props = withDefaults(defineProps<Props>(), {
   disableHoverOpen: false,
 })
-
-const attrs = computed(
-  () => omit(props, ['modelValue', 'target']),
-)
 
 const id = crypto.randomUUID()
 
