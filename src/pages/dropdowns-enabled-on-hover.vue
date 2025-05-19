@@ -22,8 +22,8 @@
           </q-item>
           <q-separator />
           <q-item
-            v-for="n in 2"
-            :key="n"
+            v-for="j in 2"
+            :key="j"
             clickable
           >
             <q-item-section>Preferences</q-item-section>
@@ -42,7 +42,9 @@
                   dense
                   clickable
                 >
-                  <q-item-section>Submenu Label</q-item-section>
+                  <q-item-section>
+                    Submenu Label {{ j === 1 ? '（disableHover）' : '' }}
+                  </q-item-section>
                   <q-item-section side>
                     <q-icon name="keyboard_arrow_right" />
                   </q-item-section>
@@ -50,6 +52,7 @@
                     auto-close
                     anchor="top end"
                     self="top start"
+                    :disable-hover-open="j === 1"
                   >
                     <q-list>
                       <q-item
@@ -58,7 +61,9 @@
                         dense
                         clickable
                       >
-                        <q-item-section>3rd level Label</q-item-section>
+                        <q-item-section>
+                          3rd level Label
+                        </q-item-section>
                       </q-item>
                     </q-list>
                   </menu-hover>

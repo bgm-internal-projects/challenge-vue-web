@@ -19,8 +19,12 @@ import { debounce, QMenu } from 'quasar'
 import { computed, inject, onBeforeUnmount, provide, ref, watch } from 'vue'
 import { injectionKey } from './constant'
 
-interface Props extends Omit<QMenuProps, 'modelValue' | 'target'> { }
-const props = withDefaults(defineProps<Props>(), {})
+interface Props extends Omit<QMenuProps, 'modelValue' | 'target'> {
+  disableHoverOpen?: boolean;
+}
+const props = withDefaults(defineProps<Props>(), {
+  disableHoverOpen: false,
+})
 
 const attrs = computed(
   () => omit(props, ['modelValue', 'target']),
@@ -70,6 +74,10 @@ watch(() => [
   isMenuHover,
   hasSubmenuVisible,
 ], () => {
+  if (props.disableHoverOpen) {
+    return
+  }
+
   menuVisible.value = isTriggerHover.value || isMenuHover.value || hasSubmenuVisible.value
 }, { deep: true })
 
