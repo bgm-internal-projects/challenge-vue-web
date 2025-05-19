@@ -10,13 +10,10 @@
   </q-menu>
 </template>
 
-<script
-  setup
-  lang="ts"
->
+<script setup lang="ts">
 import type { QMenuProps } from 'quasar'
 import type { MenuData } from './constant'
-import { reactiveComputed, useElementHover, useParentElement } from '@vueuse/core'
+import { useElementHover, useParentElement } from '@vueuse/core'
 import { omit } from 'lodash-es'
 import { debounce, QMenu } from 'quasar'
 import { computed, inject, onBeforeUnmount, provide, ref, watch } from 'vue'
@@ -50,7 +47,7 @@ function handleMenuHover() {
 const submenuList = ref<MenuData[]>([])
 
 const rootProvider = inject(injectionKey, null)
-const currentSubmenuList = reactiveComputed(() => rootProvider?.submenuList.value ?? [])
+const currentSubmenuList = computed(() => rootProvider?.submenuList.value ?? [])
 
 // 紀錄目前是第幾層 menu
 const menuLevel = inject('menu-level', 0)
@@ -62,7 +59,7 @@ const hasSubmenuVisible = computed(() => {
     return true
   }
 
-  const visible = currentSubmenuList.some(({ level }) => level > menuLevel)
+  const visible = currentSubmenuList.value.some(({ level }) => level > menuLevel)
 
   // 自己也要顯示才算是自己的 submenu
   return visible && menuVisible.value
