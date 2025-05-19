@@ -6,9 +6,19 @@
     "intlify",
     "pinia",
     "ramda",
+    "remeda",
     "tailwindcss",
     "Unocss",
+    "unplugin",
     "vueuse"
   ],
-  "typescript.tsdk": "node_modules\\typescript\\lib"
+  "typescript.tsdk": "node_modules\\typescript\\lib",
+  "editor.tabSize": 2,
+  "editor.formatOnSave": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "explicit"
+  },
+  "tailwindCSS.experimental.classRegex": [
+    "class=\"([^\"]+)\""
+  ]
 }

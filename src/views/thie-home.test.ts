@@ -1,6 +1,6 @@
-import { describe, expect, it, vi } from 'vitest';
-import { mount } from '@vue/test-utils';
-import { createTestingPinia } from '@pinia/testing';
+import { createTestingPinia } from '@pinia/testing'
+import { mount } from '@vue/test-utils'
+import { describe, expect, it, vi } from 'vitest'
 
 import TheHome from './the-home.vue'
 
@@ -15,9 +15,9 @@ describe('the-home 元件', () => {
             }),
           ],
         },
-      });
+      })
 
-      expect(wrapper.text()).toContain('codfish');
+      expect(wrapper.text()).toContain('codfish')
     })
   })
 })

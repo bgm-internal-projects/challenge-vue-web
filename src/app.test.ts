@@ -1,14 +1,15 @@
-import { describe, expect, it, vi } from 'vitest';
-import { mount } from '@vue/test-utils';
-import { createTestingPinia } from '@pinia/testing';
-import { installQuasarPlugin } from '@quasar/quasar-app-extension-testing-unit-vitest';
+import { createTestingPinia } from '@pinia/testing'
+import { installQuasarPlugin } from '@quasar/quasar-app-extension-testing-unit-vitest'
+import { mount } from '@vue/test-utils'
+import Quasar from 'quasar'
 
+import { describe, expect, it, vi } from 'vitest'
 import App from './App.vue'
-import Quasar from 'quasar';
-import i18n from './locales/i18n';
-installQuasarPlugin();
+import i18n from './locales/i18n'
 
-describe('App 入口組件', () => {
+installQuasarPlugin()
+
+describe('app 入口組件', () => {
   describe('測試基本內容', () => {
     it('是否包含 codfish 文字', () => {
       const wrapper = mount(App, {
@@ -21,9 +22,9 @@ describe('App 入口組件', () => {
             i18n,
           ],
         },
-      });
+      })
 
-      expect(wrapper.text()).toContain('codfish');
+      expect(wrapper.text()).toContain('codfish')
     })
   })
 })
