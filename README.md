@@ -27,7 +27,7 @@
 - VueUse：<https://vueuse.org/guide>
 - Quasar：<https://quasar.dev/introduction-to-quasar>
 - remeda：<https://remedajs.com/>
-- lodash：記得引用 lodash-es。<https://lodash.com/docs>
+- lodash-es：<https://lodash.com/docs>
 - Tailwind CSS
 
 ## 注意事項
