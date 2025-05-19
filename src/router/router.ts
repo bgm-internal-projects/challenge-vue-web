@@ -27,12 +27,12 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: `/async-children`,
     name: RouteName.ASYNC_CHILDREN,
-    component: () => import('../views/the-async-children.vue')
+    component: () => import('../views/the-async-children.vue'),
   },
   {
     path: `/dropdowns-enabled-on-hover`,
     name: RouteName.DROPDOWNS_ENABLED_ON_HOVER,
-    component: () => import('../views/the-dropdowns-enabled-on-hover.vue')
+    component: () => import('../views/the-dropdowns-enabled-on-hover.vue'),
   },
 
   {

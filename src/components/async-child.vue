@@ -26,28 +26,26 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
-import { useAsyncChild } from "../composables/use-async-child";
-import { useAsyncState } from "@vueuse/core";
+import { useAsyncState } from '@vueuse/core'
+import { useAsyncChild } from '../composables/use-async-child'
 
 const { state: catFact, isReady: isFactReady, execute: updateFact } = useAsyncState(async () => {
-  const res = await fetch('https://catfact.ninja/fact');
-  return await res.json() as { fact: string };
-}, undefined);
+  const res = await fetch('https://catfact.ninja/fact')
+  return await res.json() as { fact: string }
+}, undefined)
 
 const { state: cat, isReady: isCatReady, execute: updateCat } = useAsyncState(async () => {
-  const res = await fetch('https://cataas.com/cat');
-  const blob = await res.blob();
-  return URL.createObjectURL(blob);
-}, undefined);
+  const res = await fetch('https://cataas.com/cat')
+  const blob = await res.blob()
+  return URL.createObjectURL(blob)
+}, undefined)
 
-
-useAsyncChild(isFactReady);
-useAsyncChild(isCatReady);
+useAsyncChild(isFactReady)
+useAsyncChild(isCatReady)
 
 function startTask() {
-  updateFact();
-  updateCat();
+  updateFact()
+  updateCat()
 }
-startTask();
+startTask()
 </script>

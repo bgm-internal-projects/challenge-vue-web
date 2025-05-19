@@ -6,7 +6,7 @@
     @mouseenter="handleMenuHover"
     @mouseleave="handleMenuLeave"
   >
-    <slot></slot>
+    <slot />
   </q-menu>
 </template>
 
@@ -14,18 +14,19 @@
   setup
   lang="ts"
 >
-import { reactiveComputed, useElementHover, useParentElement } from '@vueuse/core';
-import { debounce, QMenu, QMenuProps } from 'quasar';
-import { onBeforeUnmount } from 'vue';
-import { computed, provide, inject, ref, watch } from 'vue';
-import { MenuData, injectionKey } from './constant';
-import { omit } from 'lodash-es';
+import type { QMenuProps } from 'quasar'
+import type { MenuData } from './constant'
+import { reactiveComputed, useElementHover, useParentElement } from '@vueuse/core'
+import { omit } from 'lodash-es'
+import { debounce, QMenu } from 'quasar'
+import { computed, inject, onBeforeUnmount, provide, ref, watch } from 'vue'
+import { injectionKey } from './constant'
 
 interface Props extends Omit<QMenuProps, 'modelValue' | 'target'> { }
-const props = withDefaults(defineProps<Props>(), {});
+const props = withDefaults(defineProps<Props>(), {})
 
 const attrs = computed(
-  () => omit(props, ['modelValue', 'target'])
+  () => omit(props, ['modelValue', 'target']),
 )
 
 const id = crypto.randomUUID()
@@ -68,18 +69,21 @@ const hasSubmenuVisible = computed(() => {
 })
 
 watch(() => [
-  isTriggerHover, isMenuHover, hasSubmenuVisible
+  isTriggerHover,
+  isMenuHover,
+  hasSubmenuVisible,
 ], () => {
   menuVisible.value = isTriggerHover.value || isMenuHover.value || hasSubmenuVisible.value
 }, { deep: true })
 
-
 watch(menuVisible, (value) => {
   if (value) {
     rootProvider?.bindSubmenu({
-      id, level: menuLevel
+      id,
+      level: menuLevel,
     })
-  } else {
+  }
+  else {
     rootProvider?.unbindSubmenu(id)
   }
 })

@@ -159,7 +159,7 @@
   setup
   lang="ts"
 >
-import MenuHover from '../components/menu-hover/menu-hover.vue';
+import MenuHover from '../components/menu-hover/menu-hover.vue'
 </script>
 
 <style

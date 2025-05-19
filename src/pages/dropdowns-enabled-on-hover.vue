@@ -51,7 +51,7 @@
                     anchor="top end"
                     self="top start"
                   >
-                    <q-list ref="list">
+                    <q-list>
                       <q-item
                         v-for="n in 1"
                         :key="n"
@@ -127,7 +127,7 @@
                     anchor="top end"
                     self="top start"
                   >
-                    <q-list ref="list">
+                    <q-list>
                       <q-item
                         v-for="n in 3"
                         :key="n"
@@ -155,15 +155,9 @@
   </div>
 </template>
 
-<script
-  setup
-  lang="ts"
->
-import MenuHover from '../components/menu-hover/menu-hover.vue';
+<script setup lang="ts">
+import MenuHover from '../components/menu-hover/menu-hover.vue'
 </script>
 
-<style
-  scoped
-  lang="sass"
->
+<style scoped lang="sass">
 </style>

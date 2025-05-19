@@ -1,5 +1,6 @@
-import { cloneDeep } from 'lodash-es';
-import { UnwrapRef, WatchCallback, WatchSource, ref, watch } from 'vue';
+import type { UnwrapRef, WatchCallback, WatchSource } from 'vue'
+import { cloneDeep } from 'lodash-es'
+import { ref, watch } from 'vue'
 
 type ComputedWatchCallback<V, OV, S, OnCleanup> = (value: V, oldValue: OV, onCleanup: OnCleanup) => S
 
@@ -9,11 +10,11 @@ export function computedWatch<T, S>(
   initialState: S,
   cb: ComputedWatchCallback<T, T | undefined, S, Parameters<WatchCallback>[2]>,
 ) {
-  const data = ref<S>(cloneDeep(initialState));
+  const data = ref<S>(cloneDeep(initialState))
 
   watch(source, (value, oldValue, onCleanup) => {
-    data.value = cb(value, oldValue, onCleanup) as UnwrapRef<S>;
-  }, { deep: true, immediate: true });
+    data.value = cb(value, oldValue, onCleanup) as UnwrapRef<S>
+  }, { deep: true, immediate: true })
 
-  return data;
+  return data
 }
