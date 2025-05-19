@@ -2,6 +2,7 @@
   <q-menu
     ref="menuRef"
     v-model="menuVisible"
+    v-bind="props"
     @mouseenter="handleMenuHover"
     @mouseleave="handleMenuLeave"
   >
@@ -13,7 +14,6 @@
 import type { QMenuProps } from 'quasar'
 import type { MenuData } from './constant'
 import { useElementHover, useParentElement } from '@vueuse/core'
-import { omit } from 'lodash-es'
 import { debounce, QMenu } from 'quasar'
 import { computed, inject, onBeforeUnmount, provide, ref, watch } from 'vue'
 import { injectionKey } from './constant'
